@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The eras</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Darker+Grotesque:wght@300..900&family=Homemade+Apple&family=Instrument+Serif:ital@0;1&family=Italianno&family=Nothing+You+Could+Do&family=Playwrite+VN:wght@100..400&display=swap" rel="stylesheet">
+    <style>
+     body {
+            margin: 0;
+            padding-top: 0px; 
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+        }
+
+        /* Navbar fijo */
+        .navbar {
+            
+            display: flex;
+            justify-content: space-between; /* Coloca el logo a la izquierda y los enlaces a la derecha */
+            align-items: center;
+            height: 70px;
+            background: #1b1b1b;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar a {
+            margin-top: 2px;
+            margin-left: 1%; /* Ajusta este valor si necesitas más o menos espacio */
+        }
+
+        .nav-links {
+            margin: 0 15%;
+            list-style: none;
+            display: flex;
+            gap: 40px; /* Espaciado uniforme entre enlaces */
+        }
+
+
+        .menu-vertical{
+            position: absolute;
+            display: none;
+            list-style: none;
+            width: 130px;
+            background-color: #1b1b1b;
+
+        }
+
+        .menu-vertical li a{
+            text-align: left;
+            font-family: "Darker Grotesque", serif;
+            font-size: 1.1rem;
+            padding-left: 0px;
+            padding-right: 15px;
+            
+        }
+        .nav-links li:hover .menu-vertical{
+            display: block;
+        }
+
+        .nav-links li a {
+            font-family: "Darker Grotesque", serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+            text-decoration: none; /* Sin subrayado */
+            color: #d1d1d1; /* Color inicial */
+            font-size: 1.3rem;
+            transition: color 0.3s ease, transform 0.3s ease; /* Suaviza el cambio de color y animaciones */
+        }
+
+        .nav-links li a:hover {
+            color: #a178ff; /* Cambia el color al pasar el mouse */
+            transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+        }
+
+        .logo-image {
+            width: 150px;
+            height: 50px;
+            object-fit: cover;
+        }
+
+        .first-container{
+            top: 0;
+            left: 0;
+            margin-top: 70px; /* Ajusta este valor si el navbar tiene otra altura */
+            background-image: url('./img/fondol.jpg');
+            background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+            background-position: center; /* Centra la imagen */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            position: relative; /* Asegura que no se superponga */
+            width: 100%; /* Asegura que ocupe todo el ancho */
+            height: 100vh; /* Ocupa toda la altura de la ventana */
+            object-fit: cover; /* Ajusta la imagen sin deformarla */
+
+            
+        }
+
+        .container-horizontal {
+            display: flex;
+            flex-direction: row;
+            align-items: center; /* Opcional: Alinea verticalmente los elementos */
+            justify-content: space-between; /* Ajusta la distribución del espacio */
+            gap: 20px; /* Ajusta el espacio entre elementos */
+            width: 100%;
+        }
+
+
+        .flex-item{
+            flex: 1; /* Para que tome el espacio adecuado */
+            gap: 50px;
+            margin-right: 50px;
+            margin-left: 50px;
+        }
+        .titulo-item{
+            font-family: "Italianno", serif;
+            font-weight: 400;
+            font-style: normal;
+            color:white;
+            font-size: 5.2rem;
+            text-align: center;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px; 
+            margin-top: 0px;
+            padding-bottom: 0px;
+
+        }
+        .imagen-cuadro{
+            margin-top: 0px;
+            height: 165px;
+            width: 250px;
+            box-shadow: 5px 5px 5px #161616;
+        }
+        .row {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            max-width: 800px;
+        }
+        .frase{
+            font-family: "Instrument Serif", serif;
+            font-weight: 400;
+            font-style: italic;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            font-size: 18px;
+            margin-top: 0px; 
+
+        }
+        .container {
+            margin-bottom: 0;
+            max-width: 800px;
+            margin: 50px auto;
+            padding-bottom: 0px;
+        }
+
+        .title {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 1.2rem;
+            font-style: "Instrument Serif", serif;
+            color: #6b4761;
+            font-weight: 400;
+            font-style: normal;
+            text-align: center;
+            padding-top: 0;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            margin: 10px 0;
+            color: #000000;
+            font-family: "Instrument Serif", serif;
+            text-align: justify;
+        }
+
+        .songs-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .song-button {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            margin-left: 10px;
+            justify-content: flex-start;
+            width: 280px;
+            background: #f8b5d0;
+            color: #3d1e2f;
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 12px 15px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out, background 0.3s ease;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .song-button:hover {
+            transform: scale(1.05);
+            background: #f59ebd;
+        }
+
+        .song-button img {
+            width: 24px;
+            height: 24px;
+            margin-left: auto;
+        }
+
+        .miau-gif{
+            margin-top: 0px;
+            height: 300px !important; /* Ajusta la altura según lo que necesites */
+            width: 100%; /* Ocupa todo el ancho del contenedor */
+            object-fit: cover; /* Mantiene la imagen ajustada sin deformarla */
+            flex-grow: 1;
+            margin-left: 0;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <!-- Navbar fijo -->
+    <nav class="navbar">
+        <a href="#logo"><img src="./img/logopng.png" alt="Logo" class="logo-image"></a>
+        <ul class="nav-links">
+            
+            <li><a href="/paginaprincipal.html#inicio">INICIO</a></li>
+            <li><a href="/paginaprincipal.html#lugares">LUGARES</a></li>
+            <li><a href="/paginaprincipal.html#entradas">ENTRADAS</a>
+            </li>
+            <li>
+                <a href="#eras">ERAS</a>
+                <ul class="menu-vertical">
+                    <li><a href="/paginaLover.html">LOVER</a></li>
+                    <li><a href="/paginaReputation.html">REPUTATION</a></li>
+                    <li><a href="#folklore">FOLKLORE</a></li>
+                    <li><a href="#ttpdt">TTPDT</a></li>
+                </ul>
+            </li>             
+        </ul>
+    </nav>
+    <div class="first-container">
+        <div class="container-horizontal" style="flex-direction:row;">
+            <div class="flex-item">
+                
+                <div class="cuadro-texto">
+                    <div class="row">
+                        <img src="./img/lovergif.webp" class="miau-gif"/>
+                    </div>
+
+                    <div class="row reverse">
+                        <p class="frase">“Can we always be this close forever and ever?” <br> - Lover</p>
+                        <img src="./img/casitalo.jpg" class="imagen-cuadro">
+                    </div>
+                    <div class="row">
+                        <img src="./img/lo01.webp" class="imagen-cuadro"/>
+                        <p class="frase">“I don't wanna keep secrets just to keep you” <br> - Cruel Summer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-item">
+                
+                <div class="container">
+                    <h1 class="titulo-item">Lover</h1>
+                    <h1 class="title">“Lover es en gran medida una celebración del amor, en toda su complejidad, comodidad y caos”</h1>
+                    <p class="description">
+                        Es un álbum con una estética colorida y optimista. Con canciones como ME! y Lover, que celebran el amor en todas sus formas, 
+                        explorando la felicidad y la vulnerabilidad con un sonido más ligero y alegre.
+                    </p>
+            
+                    <div class="songs-container">
+                        <button class="song-button" onclick="window.open('https://www.youtube.com/watch?v=g3BJfhNcoCI', '_blank')">Cruel Summer <img src="https://img.icons8.com/color/48/youtube-play.png" alt="YouTube"></button>
+                        <button class="song-button" onclick="window.open('https://www.youtube.com/watch?v=VYDjKkUSdxk', '_blank')">Cornelia Street <img src="https://img.icons8.com/color/48/youtube-play.png" alt="YouTube"></button>
+                        <button class="song-button" onclick="window.open('https://www.youtube.com/watch?v=k9QYX6IOHvg', '_blank')">Lover <img src="https://img.icons8.com/color/48/youtube-play.png" alt="YouTube"></button>
+                        <button class="song-button" onclick="window.open('https://www.youtube.com/watch?v=Upq1ljncdB4', '_blank')">London Boy <img src="https://img.icons8.com/color/48/youtube-play.png" alt="YouTube"></button>
+                        <button class="song-button" onclick="window.open('https://www.youtube.com/watch?v=xTnpz15R6z0', '_blank')">The Man <img src="https://img.icons8.com/color/48/youtube-play.png" alt="YouTube"></button>
+                        <button class="song-button" onclick="window.open('https://www.youtube.com/watch?v=ZEaeH3rS3NY', '_blank')">ME! <img src="https://img.icons8.com/color/48/youtube-play.png" alt="YouTube"></button>
+                        <button class="song-button" onclick="window.open('https://www.youtube.com/watch?v=sTQFAoIKYjI', '_blank')">Miss Americana & The Heartbreak Prince <img src="https://img.icons8.com/color/48/youtube-play.png" alt="YouTube"></button>
+                        <button class="song-button" onclick="window.open('https://www.youtube.com/watch?v=fSwfd-IKmBw', '_blank')">You Need To Calm Down <img src="https://img.icons8.com/color/48/youtube-play.png" alt="YouTube"></button>
+                        <button class="song-button" onclick="window.open('https://www.youtube.com/watch?v=jaXrdMhOjQk', '_blank')">Paper Rings <img src="https://img.icons8.com/color/48/youtube-play.png" alt="YouTube"></button>
+                        <button class="song-button" onclick="window.open('https://www.youtube.com/watch?v=5BsYuSBwBCI', '_blank')">Daylight <img src="https://img.icons8.com/color/48/youtube-play.png" alt="YouTube"></button>
+                    </div>
+                </div>
+             
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>
